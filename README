@@ -1,8 +1,8 @@
 Filesys/CygwinPaths version 0.03
 ================================
 
-Perl Extension for doing various path translations on Cygwin. Is
-expected to be built and run on Cygwinperl only. Requires the gcc
+A perl extension for doing various path translations on Cygwin. Is
+expected to be built and run on CygwinPerl only. Requires the gcc
 C compiler that comes with Cygwin; calls the Cygwin C API.
 
 ABOUT "exoMakefile.PL" >>READ THIS<<

@@ -1,7 +1,10 @@
+# $Source: /share/SOMIANCVSROOT/platform-specific/Filesys-CygwinPaths/Makefile.PL,v $ : $Author: sorenboss $ $Revision: 1.4 $ $Date: 2003/05/31 21:11:31 $
 use ExtUtils::MakeMaker;
 BEGIN {
   if( not $^O =~/cygwin/i ) {
-	die "Sorry, you cannot build this module on a non-Cygwin Perl.\n";
+	warn "Sorry, you cannot build this module on a non-Cygwin Perl,\n",
+	     "but am letting you proceed in case you are trying to build\n",
+	     "a release tarball or something.\n";
   }
 }
 
@@ -18,13 +21,13 @@ my $funct =  [ qw{
 # These work well on Cygwin Perl 5.6.1. On later, like 5.8.0, YMMV.
 my %stdatt = (
     'NAME'		=> 'Filesys::CygwinPaths',
-	'VERSION'   => '0.03',
-	'XS_VERSION'=> '0.03',
-    'VERSION_FROM'	=> 'lib/CygwinPaths.pm',
+	'VERSION'   	=> '0.04',
+	'XS_VERSION'	=> '0.04',
+	'VERSION_FROM'	=> 'lib/Filesys/CygwinPaths.pm',
     ($] >= 5.005 ?
-      (ABSTRACT_FROM => 'lib/CygwinPaths.pm',
-       AUTHOR     => 'Soren Andersen <somian@pobox.com>') : ()),
-    'INC'		=> '-I.',
+      (ABSTRACT_FROM 	=> 'lib/Filesys/CygwinPaths.pm',
+	'AUTHOR'     	=> 'Soren Andersen <somian@pobox.com>') : ()),
+	'INC'       => '-I.',
 	'XS'        => { 'path_protocol.xs' => 'path_protocol.c' },
 	'TYPEMAPS'  => [ 'Cygwin.typemap' ],
 	'H'         => [ 'path_protocol.h'],
@@ -34,7 +37,7 @@ my %stdatt = (
 	'LD'        => 'gcc -shared',
 	'CCDLFLAGS' => '',
 #	'CCFLAGS'   => '-DPERL_USE_SAFE_PUTENV -fno-strict-aliasing',
-    'dist'      => { COMPRESS => gzip, SUFFIX => '.gz'},
+	'dist'      => { COMPRESS => gzip, SUFFIX => '.gz'},
 );
 
 WriteMakefile( %stdatt );
@@ -206,7 +209,5 @@ $target :: $plfile
     }
     join "", @m;
 }
-
-
 
 # End.

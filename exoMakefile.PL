@@ -36,12 +36,12 @@ my $funct =  [ qw{
 
 my %stdatt = (
     'NAME'		=> 'Filesys::CygwinPaths',
-    'VERSION_FROM'	=> 'lib/CygwinPaths.pm',
+    'VERSION_FROM'	=> 'lib/Filesys/CygwinPaths.pm',
     ($] >= 5.005 ?
-      (ABSTRACT_FROM => 'lib/CygwinPaths.pm',
-       AUTHOR     => 'Soren Andersen <somian@pobox.com>') : ()),
-    'PM'        => { 'lib/CygwinPaths.pm' => '$(INST_LIBDIR)/CygwinPaths.pm' },
-    'INC'		=> '-I. -I$(SRCDIR)',
+      (ABSTRACT_FROM 	=> 'lib/CygwinPaths.pm',
+       AUTHOR     	=> 'Soren Andersen <somian@pobox.com>') : ()),
+	'PM'    => { 'lib/CygwinPaths.pm' => '$(INST_LIBDIR)/CygwinPaths.pm' },
+	'INC'	=> '-I. -I$(SRCDIR)',
 	'XS'        => { 'path_protocol.xs' => 'path_protocol.c' },
 	'TYPEMAPS'  => [ 'Cygwin.typemap' ],
 	'H'         => [ 'path_protocol.h'],
@@ -51,7 +51,7 @@ my %stdatt = (
 	'LD'        => 'gcc -shared',
 	'CCDLFLAGS' => '',
 #	'CCFLAGS'   => '-DPERL_USE_SAFE_PUTENV -fno-strict-aliasing',
-    'dist'      => { COMPRESS => gzip, SUFFIX => '.gz'},
+	'dist'      => { COMPRESS => gzip, SUFFIX => '.gz'},
 );
    my $exo=ExtUtils::ExoBuild->exobuilder($mm_SRCDIR,$exo_builddir, %exoatt,%stdatt);
    $exo->WriteExoMakefile();

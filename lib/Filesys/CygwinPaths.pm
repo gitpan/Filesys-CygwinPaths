@@ -38,19 +38,12 @@ use vars qw( $VERSION $PATHSMODE );
 Filesys::CygwinPaths - Perl extension to get various conversions of path specifications
 in the Cygwin port of Perl.
 
-=cut
-
-my $discard=length <<'=head1 VERSION';
-
-=pod
-
-=head1 VERSION
-
-$VERSION = '0.03' ;
+=head2 VERSION 0.04
 
 =cut
 
-=cut
+$VERSION = '0.04' ;
+
 
 bootstrap Filesys::CygwinPaths $VERSION;
 
@@ -67,7 +60,7 @@ bootstrap Filesys::CygwinPaths $VERSION;
          or die "No fun today!";
     }
 	system('C:/Applications/IrfanView/iview32', '/killmesoftly');
-	
+
    OR
 
     use Filesys::CygwinPaths ':all';
@@ -253,11 +246,11 @@ make any translations necessary to transform the path argument according to the 
 
 =over 3
 
-(a) setting PATHSMODE directly in your script
+=item (a) setting PATHSMODE directly in your script
 
    $PATHSMODE = 'cyg_posix';  # not "my" (!!)
 
-(b) calling the subroutine C<PATHS_mode> with the desired value. See below.
+=item (b) calling the subroutine C<PATHS_mode> with the desired value. See below.
 
 =back
 
@@ -296,6 +289,8 @@ return the fully-qualified path spec in Windows style.
 
 =head2 Changes
 
+ >= 0.04 -- see CHANGES file in distrubution archive.
+
   0.03 Added private subroutine to provide the HOME directory if the
        arg began with "~<something>". Added ucfirst() call to
        fullwin32path(), to force uniformity of results (all drive
@@ -309,6 +304,8 @@ return the fully-qualified path spec in Windows style.
 =head2 Notes on the XS programming (C interface)
 
 TODO.
+
+=over 3
 
 =item *
 
