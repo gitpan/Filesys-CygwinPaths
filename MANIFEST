@@ -1,0 +1,9 @@
+lib/CygwinPaths.pm
+path_protocol.xs
+Cygwin.typemap
+exoMakefile.PL
+Makefile.PL
+MANIFEST
+path_protocol.h
+README
+test.pl
